@@ -1,11 +1,11 @@
+// Modules
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { CalculatorModule } from "./calculator";
 
 // Components
 import { AppComponent } from './app.component';
 
-// Modules
-import { CalculatorModule } from "./calculator/calculator.module";
 
 @NgModule({
   declarations: [
