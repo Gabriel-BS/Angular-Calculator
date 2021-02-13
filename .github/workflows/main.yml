@@ -13,18 +13,23 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  test:
-    runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [14.x]
+  build:
+    runs-on: ubuntu-18.04
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
+    - uses: actions/checkout@v1
+    - name: Use Node.js 12.8
       uses: actions/setup-node@v1
       with:
-        node-version: ${{ matrix.node-version }}
-    - run: npm ci
-    - run: ng test
+        node-version: 14.15.5
+    - name: Install dependencies
+      run: npm install
+    - name: Lint
+      run: npm run lint
+    - name: Build
+      run: npm run build -- --prod
+    - name: Test
+      run: npm test -- --configuration=ci
+    - name: E2E
+      run: npm run e2e -- --configuration=ci
+
