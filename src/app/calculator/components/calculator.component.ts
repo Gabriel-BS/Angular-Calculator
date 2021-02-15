@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+// Services
+import { CalculatorService } from "../services";
+
 @Component({
   selector: 'app-calculator',
   templateUrl: './calculator.component.html',
@@ -7,7 +10,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CalculatorComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private calculatorService: CalculatorService
+  ) { }
 
   ngOnInit(): void {
   }
