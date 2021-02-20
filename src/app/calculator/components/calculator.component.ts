@@ -61,18 +61,7 @@ export class CalculatorComponent implements OnInit {
       this.operation = operation;
       return
     }
-
-    if(this.num1 !== null){
-      this.result = this.calculatorService.calculate(
-        parseFloat(this.num1),
-        parseFloat(this.num2),
-        this.operation
-      )
-      this.operation = operation;
-      this.num1 = this.result.toString();
-      this.num2 = null;
-      this.result = null;
-    }
+    this.operation = operation;
   }
 
   calcular(): void {
